@@ -1,0 +1,46 @@
+.gameDiv{
+    border-style: solid;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+}
+
+.highscoreTitle{
+    text-align: center;
+}
+
+.scoreHeader{
+    margin-left: 85%;
+   font-size: 30px;
+   display: inline;
+}
+
+.nameAndDate{
+    display: inline;
+}
+
+.registerLink{
+    margin-left: 90%;
+    color: green;
+    cursor: pointer;
+}
+
+.registerForm{
+    text-align: center;
+    font-size: 20px;
+}
+
+.sendBtn{
+    cursor: pointer;
+    width: 100px
+}
+
+.sendBtn:hover{
+    background-color: lightgrey;
+}
+
+.registerForm, input{
+    text-align: center;
+}

@@ -1,24 +1,66 @@
-import logo from './logo.svg';
-import './App.css';
+import HighscoreTable from "./components/highscoreTable/highscoreTable";
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+} from "react-router-dom";
+import NewHighscore from "./components/registerHighscore/registerHighscore";
+import GameDetails from "./components/gameDetails/gameDetails";
+
+export let highscores = [
+  {
+    id: 1,
+    game: "Tetris",
+    date: "2020-01-01",
+    player: "John Doe",
+    score: 999999,
+  },
+  {
+    id: 2,
+    game: "Pacman",
+    date: "2020-01-01",
+    player: "John Doe",
+    score: 999999,
+  },
+  {
+    id: 3,
+    game: "Asteroids",
+    date: "2020-01-01",
+    player: "John Doe",
+    score: 999999,
+  },
+];
+
+function addHighscore(highscore) {
+  highscores.push(highscore);
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <ul>
+        <li>
+          <Link to="/" exact>
+            Homepage
+          </Link>
+        </li>
+      </ul>
+
+      <hr />
+      <Switch>
+        <Route exact path="/">
+          <HighscoreTable highscores={highscores} />
+        </Route>
+        <Route path="/new">
+          <NewHighscore addHighscore={addHighscore} />
+        </Route>
+        <Route path={`/games/`}>
+          <GameDetails />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
